@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<title>다음 지도 API</title>
+</head>
+
+<body>
+	<!-- 지도를 표시할 div 입니다 -->
+	<div id="map" style="width:750px;height:350px;"></div>
+
+
+	<!-- 스크립트는 나중에 뺄 것 -->
+
+	<script type="text/javascript"
+		src="//apis.daum.net/maps/maps3.js?apikey=25a8fae1fa67b3e279039cf4a74b4ac9"></script>
+
+
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		    mapOption = {
+		        center: new daum.maps.LatLng(37.56275, 126.98293), // 지도의 중심좌표
+		        level: 1, // 지도의 확대 레벨
+		        mapTypeId : daum.maps.MapTypeId.ROADMAP // 지도종류
+		    }; 
+
+		// 지도를 생성한다 
+		var map = new daum.maps.Map(mapContainer, mapOption); 
+
+		// 지도에 확대 축소 컨트롤을 생성한다
+		var zoomControl = new daum.maps.ZoomControl();
+
+		// 지도의 우측에 확대 축소 컨트롤을 추가한다
+		map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT);
+		// 마커 이미지의 주소
+		var markerImageUrl = 'http://i1.daumcdn.net/localimg/localimages/07/2012/img/marker_p.png', 
+		    markerImageSize = new daum.maps.Size(20, 21), // 마커 이미지의 크기
+		    markerImageOptions = { 
+		        offset : new daum.maps.Point(10, 21)// 마커 좌표에 일치시킬 이미지 안의 좌표
+		    };
+
+		// 마커 이미지를 생성한다
+		var markerImage = new daum.maps.MarkerImage(markerImageUrl, markerImageSize, markerImageOptions);
+
+		// 지도에 마커를 생성하고 표시한다
+		var marker = new daum.maps.Marker({
+		    position: new daum.maps.LatLng(37.56275, 126.98293), // 마커의 좌표
+		    draggable : true, // 마커를 드래그 가능하도록 설정한다
+		    image : markerImage, // 마커의 이미지
+		    map: map, // 마커를 표시할 지도 객체
+		    clickable: true // 마커를 클릭했을 때 지도의 클릭 이벤트가 발생하지 않도록 설정합니다
+		});
+
+		// 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
+		var iwContent = '<div style="padding:5px;">김슬기</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+		    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+		
+		// 마커 위에 표시할 인포윈도우를 생성한다
+		var infowindow = new daum.maps.InfoWindow({
+			content : iwContent,
+		    removable : iwRemoveable
+		});
+
+		// 인포윈도우를 지도에 표시한다
+		infowindow.open(map, marker);
+
+		// 마커에 클릭 이벤트를 등록한다 (우클릭 : rightclick)
+		daum.maps.event.addListener(marker, 'click', function() {
+			// 마커 위에 인포윈도우를 표시합니다
+		    infowindow.open(map, marker); 
+		});
+
+		// 마커에 dragstart 이벤트 등록
+		daum.maps.event.addListener(marker, 'dragstart', function() {
+		    console.log('마커에 dragstart 이벤트가 발생했습니다!');
+		});
+
+		// 마커에 dragend 이벤트 등록
+		daum.maps.event.addListener(marker, 'dragend', function() {
+		    console.log('마커에 dragend 이벤트가 발생했습니다!');
+		});
+
+
+	</script>
+</body>
+</html>
