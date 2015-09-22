@@ -1,0 +1,71 @@
+.start-search {
+	border: 1px solid dimgrey;
+	color: black;
+	width: 90%;
+	height: 100%;
+	font-size: 20px;
+}
+
+.button {
+	margin-left: 5%;
+	margin-top: 5%;
+	width: 90%;
+	height: 100%;
+	font-size: 25px;
+	padding-top: 3%;
+	padding-bottom: 3%;
+	box-shadow: 0px 0px 0px;
+}
+
+.panel-body {
+	color: black;
+	text-align: left;
+	font-size: 12px;
+}
+
+.panel-default {
+	width: 90%;
+	height: auto;
+	margin-left: 5%;
+	margin-top: 40%;
+}
+
+
+#menu_wrap {
+	text-align: left;
+	margin-top: 27%;
+	margin-left: 5%;
+	width: 90%;
+	height: 700px;
+	overflow: auto;
+}
+
+#placesList .item span {
+	display: block;
+}
+
+#placesList .item h5, #placesList .item .info {
+	overflow: hidden;
+}
+
+.map_wrap, .map_wrap * {
+	font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+	font-size: 20px;
+}
+
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active {
+	color: #000;
+	text-decoration: none;
+}
+
+.map_wrap {
+	margin-top: 5%;
+	margin-left: 5%;
+	position: relative;
+	width: 60%;
+	height: 700px;
+}
+
+#placesList {
+	
+}
