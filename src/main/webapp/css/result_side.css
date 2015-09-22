@@ -4,22 +4,30 @@
   cursor: pointer;
 }
 
+#map {
+  background-color: gray;
+  height: 150px;
+  position: relative;
+}
 
-/*map 안보이게*/
+.sidebar_content_area {
+  display: block;
+  margin-right: 7%;
+  margin-left: 7%;
+  text-align: center;
+}
 
-.map_hide {
-  display: none;
+#map:hover {
+  background-color: red;
 }
 
 
 /*버튼 스타일*/
 
 .menu_button {
-  min-width: 150px;
-  max-width: 200px;
+  width: 100%;
+  display: inline-block;
   display: block;
-  margin-left: 9%;
-  margin-bottom: 0%;
   padding: 1em 2em;
   border: none;
   position: relative;

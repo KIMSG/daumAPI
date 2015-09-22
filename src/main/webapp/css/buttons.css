@@ -695,7 +695,7 @@
 .button.button--wapasha {
 	background: #37474f;
 	color: #fff;
-	-webkit-transition: background-color 0.2s, color 0.3s;
+	-webkit-transition: background-color 0.3s, color 0.3s;
 	transition: background-color 0.3s, color 0.3s;
 }
 .button--wapasha.button--inverted {
